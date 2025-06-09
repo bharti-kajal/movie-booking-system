@@ -137,10 +137,7 @@ Note: All add booking endpoints require passing the JWT token in the `Authorizat
     "showDate": "2025-06-11",
     "showTime": "18:30",
     "seats": ["B2", "B10", "B4"],
-    "totalPrice": 750,
-    "language": "Hindi",
-    "format": "3D",
-    "screenId": "6657ab8b2a233f34c0dd1c09"
+    "totalPrice": 750
   }
 
 ## Authentication
