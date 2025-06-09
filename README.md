@@ -57,19 +57,91 @@ Server runs on `http://localhost:3200`.
 
 ## API Endpoints
 
-### Auth
-1.[/api/auth/register](http://localhost:3200/user/sign-up)
-2.[/api/auth/login](http://localhost:3200/user/sign-in)
+### Auth APIs
+1. Register User  
+   Method: POST
+   Endpoint: POST /api/user/sign-up  
+   Example Request Body:
+   {
+     "name": "Asmita Pritam",
+     "email": "asmita@gmail.com",
+     "password": "Asmita@123"
+   }
+
+2. Login User  
+   Method: POST
+   Endpoint: /api/user/sign-in  
+   Example Request Body:
+   {
+     "email": "asmita@gmail.com",
+     "password": "Asmita@123"
+   }
 
 ### Movies
-1.[/api/movies](http://localhost:3200/movie/add)
-2.http://localhost:3200/movie/update
-3.http://localhost:3200/movie/delete
-4.http://localhost:3200/movie/lists
+Note: All movie endpoints require passing the JWT token in the `Authorization` header as:*  
+`Authorization: <your_token>`
+
+1. Add Movie  
+   Method: POST
+   Endpoint: /api/movie/add  
+   Example Request Body:
+   {
+    "title": "Guillermo del Toro and Neil Gaiman Find Hope",
+    "description": "Guillermo del Toro and Neil Gaiman Find Hope Guillermo del Toro and Neil Gaiman Find Hope Guillermo del Toro and Neil Gaiman Find Hope Guillermo del Toro and Neil Gaiman Find Hope ",
+    "duration": "9-hour",
+    "genre": "1997"
+  }
+
+2. Update Movie  
+   Method: POST
+   Endpoint: /api/movie/update  
+   Example Request Body:
+   {
+     "title": "Demo Test",
+    "description": "Guillermo del Toro and Neil Gaiman Find Hope Guillermo del Toro and Neil Gaiman Find Hope Guillermo del Toro and Neil Gaiman Find Hope Guillermo del Toro and Neil Gaiman Find Hope ",
+    "duration": "12-hour",
+    "genre": "1998",
+    "movieId": "68468165389d0378d34cfc2c"
+  }
+
+3. Delete Movie
+   Method: POST
+   Endpoint: /api/movie/delete  
+   Example Request Body:
+   {
+    "movieId": "68468165389d0378d34cfc2c"
+   } 
+
+4. Movie List
+   Method: GET
+   Endpoint: /api/movie/lists
+
 
 ### Bookings
-1.[/api/movies](http://localhost:3200/booking/add)
-2.[/api/movies](http://localhost:3200/booking/view-users-booking)
+
+
+1. View User Booking
+   Method: GET
+   Endpoint: /api/booking/view-users-booking
+
+Note: All add booking endpoints require passing the JWT token in the `Authorization` header as:*  
+`Authorization: <your_token>`
+
+2. Add booking  
+   Method: POST
+   Endpoint: /api/booking/add  
+   Example Request Body:
+   {
+    "userId": "6645dfcd7afcbb001f3d19a1",
+    "movieId": "6657b13333f17e1c8832679f",
+    "showDate": "2025-06-11",
+    "showTime": "18:30",
+    "seats": ["B2", "B10", "B4"],
+    "totalPrice": 750,
+    "language": "Hindi",
+    "format": "3D",
+    "screenId": "6657ab8b2a233f34c0dd1c09"
+  }
 
 ## Authentication
 * All movie and booking-related routes require JWT token authentication.
