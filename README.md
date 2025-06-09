@@ -78,7 +78,7 @@ Server runs on `http://localhost:3200`.
    }
 
 ### Movies
-Note: All movie endpoints require passing the JWT token in the `Authorization` header as:*  
+Note: All movie endpoints require passing the JWT token in the `Authorization` header as:  
 `Authorization: <your_token>`
 
 1. Add Movie  
